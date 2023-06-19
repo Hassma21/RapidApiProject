@@ -1,4 +1,5 @@
-﻿using HotelProject.DataAccessLayer.Abstract;
+﻿using HotelProject.BusinessLayer.Abstract;
+using HotelProject.DataAccessLayer.Abstract;
 using HotelProject.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,9 +10,9 @@ namespace HotelProject.WebApi.Controllers
     [ApiController]
     public class RoomController : ControllerBase
     {
-        private readonly IRoomDal _roomDal;
+        private readonly IRoomService _roomDal;
 
-        public RoomController(IRoomDal roomDal)
+        public RoomController(IRoomService roomDal)
         {
             _roomDal = roomDal;
         }
@@ -19,32 +20,32 @@ namespace HotelProject.WebApi.Controllers
         [HttpGet]
         public IActionResult RoomList()
         {
-            var values = _roomDal.GetAll();
+            var values = _roomDal.TGetAll();
             return Ok(values);
         }
         [HttpPost]
         public IActionResult AddRoom([FromBody] Room room)
         {
-            _roomDal.Insert(room);
+            _roomDal.TInsert(room);
             return Ok();
         }
         [HttpPut]
         public IActionResult UpdateRoom(Room room)
         {
-            _roomDal.Update(room);
+            _roomDal.TUpdate(room);
             return Ok();
         }
         [HttpDelete]
         public IActionResult DeleteRoom([FromRoute] int id)
         {
-            var value=_roomDal.GetById(id);
-            _roomDal.Delete(value);
+            var value=_roomDal.TGetById(id);
+            _roomDal.TDelete(value);
             return Ok();
         }
         [HttpGet("{id}")]
         public IActionResult GetRoom([FromRoute]int id)
         {
-            var value= _roomDal.GetById(id);    
+            var value= _roomDal.TGetById(id);    
             return Ok(value);
         }
     }
