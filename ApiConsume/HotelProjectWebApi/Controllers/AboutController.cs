@@ -17,32 +17,32 @@ namespace HotelProject.WebApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult RoomList()
+        public IActionResult AboutList()
         {
             var values = _aboutDal.TGetAll();
             return Ok(values);
         }
         [HttpPost]
-        public IActionResult AddRoom([FromBody] About about)
+        public IActionResult AddAbout([FromBody] About about)
         {
             _aboutDal.TInsert(about);
             return Ok();
         }
         [HttpPut]
-        public IActionResult UpdateRoom(About about)
+        public IActionResult UpdateAbout(About about)
         {
             _aboutDal.TUpdate(about);
             return Ok();
         }
         [HttpDelete("{id}")]
-        public IActionResult DeleteRoom([FromRoute] int id)
+        public IActionResult DeleteAbout([FromRoute] int id)
         {
             var value = _aboutDal.TGetById(id);
             _aboutDal.TDelete(value);
             return Ok();
         }
         [HttpGet("{id}")]
-        public IActionResult GetRoom([FromRoute] int id)
+        public IActionResult GetAbout([FromRoute] int id)
         {
             var value = _aboutDal.TGetById(id);
             return Ok(value);

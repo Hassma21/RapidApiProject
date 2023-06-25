@@ -1,5 +1,7 @@
+using FluentValidation;
 using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.EntityLayer.Concrete;
+using HotelProject.WebUI.ValidationRules.GuestValidationRules;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateGuestValidator>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

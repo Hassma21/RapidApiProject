@@ -21,3 +21,6 @@ Frontend/HotelProject.WebUI/obj
 
 RapidApi/RapidApiConsume/obj
 RapidApi/RapidApiConsume/bin
+
+JwtProject/WebApiJwt/obj
+JwtProject/WebApiJwt/bin
