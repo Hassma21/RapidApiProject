@@ -10,42 +10,42 @@ namespace HotelProject.WebApi.Controllers
     [ApiController]
     public class RoomController : ControllerBase
     {
-        private readonly IRoomService _roomDal;
+        private readonly IRoomService _roomService;
 
         public RoomController(IRoomService roomDal)
         {
-            _roomDal = roomDal;
+            _roomService = roomDal;
         }
 
         [HttpGet]
         public IActionResult RoomList()
         {
-            var values = _roomDal.TGetAll();
+            var values = _roomService.TGetAll();
             return Ok(values);
         }
         [HttpPost]
         public IActionResult AddRoom([FromBody] Room room)
         {
-            _roomDal.TInsert(room);
+            _roomService.TInsert(room);
             return Ok();
         }
         [HttpPut]
         public IActionResult UpdateRoom(Room room)
         {
-            _roomDal.TUpdate(room);
+            _roomService.TUpdate(room);
             return Ok();
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteRoom([FromRoute] int id)
         {
-            var value=_roomDal.TGetById(id);
-            _roomDal.TDelete(value);
+            var value= _roomService.TGetById(id);
+            _roomService.TDelete(value);
             return Ok();
         }
         [HttpGet("{id}")]
         public IActionResult GetRoom([FromRoute]int id)
         {
-            var value= _roomDal.TGetById(id);    
+            var value= _roomService.TGetById(id);    
             return Ok(value);
         }
     }
