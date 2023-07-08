@@ -1,0 +1,63 @@
+﻿@model ResultSendMessageDto
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="email-left-box">
+
+    @await Html.PartialAsync("SideBarAdminContactPartial")
+    @await Html.PartialAsync("SideBarAdminContactCategoryPartial")
+
+</div>
+<div class="email-right-box">
+    <div role="toolbar" class="toolbar">
+        <div class="btn-group">
+            <button aria-expanded="false" data-toggle="dropdown" class="btn btn-dark dropdown-toggle" type="button">
+                Gelen Mesajlar : <span class="caret m-l-5"></span>
+            </button>
+        </div>
+    </div>
+    <div class="read-content">
+        <div class="media pt-5">
+            <img class="mr-3 rounded-circle" src="~/adminweb/images/avatar/1.jpg">
+            <div class="media-body">
+                <h5 class="m-b-3">Gönderen -> @Model.SenderName</h5>
+                <p class="m-b-2">
+                    @Model.Date.ToString("yy.MM.dd")<div class="read-content">
+
+                        <hr>
+                        <div class="media mb-4 mt-1">
+                            <div class="media-body">
+
+                                <h4 class="m-0 text-primary">@Model.Title</h4><small class="text-muted">To:@Model.ReceiverName</small>
+                            </div>
+                        </div>
+
+                        <p>
+                            @Model.Content
+                        </p>
+                        <hr>
+
+                        <hr>
+
+                    </div>
+                </p>
+            </div>
+
+        </div>
+        <hr>
+
+    </div>
+    <!-- panel -->
+
+</div>
+
+
+
+
+
+
+
+
+

@@ -15,12 +15,31 @@ namespace HotelProject.WebApi.Controllers
         {
             _contactService = contactService;
         }
+        [HttpGet]
+        public IActionResult GetContacts()
+        {
+           var values=_contactService.TGetAll();
+            return Ok(values);
+        }
         [HttpPost]
-        public IActionResult AddStaff([FromBody] Contact contact)
+        public IActionResult AddContact([FromBody] Contact contact)
         {
             contact.Date=Convert.ToDateTime(DateTime.Now.ToString());
             _contactService.TInsert(contact);
             return Ok();
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteContact([FromRoute] int id)
+        {
+            var value = _contactService.TGetById(id);
+            _contactService.TDelete(value);
+            return Ok();
+        }
+        [HttpGet("{id}")]
+        public IActionResult GetContact([FromRoute] int id)
+        {
+            var value = _contactService.TGetById(id);
+            return Ok(value);
         }
     }
 }
