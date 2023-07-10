@@ -2,6 +2,7 @@
 using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.DataAccessLayer.Repositories;
 using HotelProject.EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,15 @@ namespace HotelProject.DataAccessLayer.EntityFramework
     {
         public EfContactDal(Context context) : base(context)
         {
+        }
+
+        public int GetContactCount()
+        {
+            using (Context context = new Context())
+            {
+
+                return context.Contacts.Count();
+            }
         }
     }
 }

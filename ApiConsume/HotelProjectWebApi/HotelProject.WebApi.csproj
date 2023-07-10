@@ -29,4 +29,9 @@
     <ProjectReference Include="..\HotelProject.DtoLayer\HotelProject.DtoLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="images\" />
+    <Folder Include="files\" />
+  </ItemGroup>
+
 </Project>

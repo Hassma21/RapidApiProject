@@ -10,18 +10,10 @@ using System.Threading.Tasks;
 
 namespace HotelProject.DataAccessLayer.EntityFramework
 {
-    public class EfSendMessageDal : GenericRepository<SendMessage>, ISendMessageDal
+    public class EfMessageCategoryDal : GenericRepository<MessageCategory>, IMessageCategoryDal
     {
-        public EfSendMessageDal(Context context) : base(context)
+        public EfMessageCategoryDal(Context context) : base(context)
         {
-        }
-
-        public int GetSendMessageCount()
-        {
-            using(var context = new Context())
-            {
-                return context.SendMessages.Count();
-            }
         }
     }
 }

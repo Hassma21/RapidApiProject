@@ -1,8 +1,5 @@
 ﻿using HotelProject.BusinessLayer.Abstract;
-using HotelProject.DataAccessLayer.Abstract;
-using HotelProject.DataAccessLayer.EntityFramework;
 using HotelProject.EntityLayer.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelProject.WebApi.Controllers
@@ -23,6 +20,12 @@ namespace HotelProject.WebApi.Controllers
             var values= _sendMessageService.TGetAll();
             return Ok(values);
 
+        }
+        [HttpGet("GetSendMessageCount")]
+        public IActionResult GetContactsCount()
+        {
+            var values = _sendMessageService.TGetSendMessageCount();
+            return Ok(values);
         }
         [HttpPost]
         public IActionResult AddSendMessage([FromBody] SendMessage sendMessage)
