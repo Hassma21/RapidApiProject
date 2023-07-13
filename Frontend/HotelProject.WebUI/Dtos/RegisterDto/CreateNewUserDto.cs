@@ -22,5 +22,9 @@ namespace HotelProject.WebUI.Dtos.RegisterDto
         [Required(ErrorMessage = "Şifre tekrar alanı gerekli")]
         [Compare("Password",ErrorMessage ="Şifre aynı olmalı")]
         public string ConfirmPassword { get; set; }
+        [Required(ErrorMessage = "Lokasyon alanı gerekli")]
+        public int WorkLocationId { get; set; }
+        
+        public string Image =string.Empty;
     }
 }

@@ -1,6 +1,5 @@
 ﻿using HotelProject.BusinessLayer.Abstract;
 using HotelProject.EntityLayer.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelProject.WebApi.Controllers
@@ -20,6 +19,18 @@ namespace HotelProject.WebApi.Controllers
         public IActionResult StaffList()
         {
             var values=_staffService.TGetAll();
+            return Ok(values);
+        }
+        [HttpGet("Last4")]
+        public IActionResult StaffLast4()
+        {
+            var values = _staffService.TGetLast4Staff();
+            return Ok(values);
+        }
+        [HttpGet("StaffCount")]
+        public IActionResult StaffCount()
+        {
+            var values = _staffService.TGetStaffCount();
             return Ok(values);
         }
         [HttpPost]

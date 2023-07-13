@@ -16,5 +16,14 @@ namespace HotelProject.WebApi.Controllers
             await file.CopyToAsync(stream);
             return Created("", file);
         }
+        [HttpPost("Admin")]
+        public async Task<IActionResult> UploadAdminImage([FromForm] IFormFile file)
+        {
+            var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "images/adminimages/" + fileName);
+            var stream = new FileStream(path, FileMode.Create);
+            await file.CopyToAsync(stream);
+            return Created("", file);
+        }
     }
 }

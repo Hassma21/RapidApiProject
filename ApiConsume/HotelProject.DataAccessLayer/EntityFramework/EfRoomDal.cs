@@ -2,11 +2,7 @@
 using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.DataAccessLayer.Repositories;
 using HotelProject.EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace HotelProject.DataAccessLayer.EntityFramework
 {
@@ -14,6 +10,14 @@ namespace HotelProject.DataAccessLayer.EntityFramework
     {
         public EfRoomDal(Context context) : base(context)
         {
+        }
+
+        public int RoomCount()
+        {
+            using(Context context =new Context())
+            {
+                return context.Rooms.Count();
+            }
         }
     }
 }

@@ -48,7 +48,7 @@
 
                                 <a class="text-center" href="index.html"> <h4>Rosella</h4></a>
 
-                                <form class="mt-5 mb-5 login-input" method="post">
+                                <form class="mt-5 mb-5 login-input" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Adınız" asp-for="Name">
                                         <span asp-validation-for="Name" class="text-warning"></span>
@@ -78,8 +78,18 @@
                                         <input type="text" class="form-control" placeholder="Şifreyi tekrar giriniz" asp-for="ConfirmPassword">
                                         <span asp-validation-for="ConfirmPassword" class="text-warning"></span>
                                     </div>
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(x => x.WorkLocationId,(IEnumerable<SelectListItem>)ViewBag.Items,"--Hotelier Seç--",new{ @class ="form-control"})
+                                        <span asp-validation-for="WorkLocationId" class="text-warning"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="file" name="file" accept="image/png, image/gif, image/jpeg" />
+                                        <span asp-validation-for="Image" class="text-warning"></span>
 
-                                    <button class="btn login-form__btn submit w-100">Kaydol</button>
+                                    </div>
+                                   
+
+                                    <button class="btn login-form__btn submit w-100" type="submit">Kaydol</button>
                                 </form>
                                 <p class="mt-5 login-form__footer">Have account <a href="Login/Index" class="text-primary">Giriş Yap</a> now</p>
                                 </p>

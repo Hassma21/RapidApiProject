@@ -22,7 +22,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.14" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.15" />
     <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
   </ItemGroup>
 
@@ -33,7 +33,7 @@
 
   <ItemGroup>
     <Folder Include="ValidationRules\RoomValidationRules\" />
-    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\images\AdminUsers\" />
   </ItemGroup>
 
 </Project>

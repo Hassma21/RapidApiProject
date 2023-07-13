@@ -1,11 +1,7 @@
 ﻿using HotelProject.BusinessLayer.Abstract;
 using HotelProject.DataAccessLayer.Abstract;
 using HotelProject.EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace HotelProject.BusinessLayer.Concrete
 {
@@ -16,6 +12,11 @@ namespace HotelProject.BusinessLayer.Concrete
         public BookingManager(IBookingDal bookingDal)
         {
             _bookingDal = bookingDal;
+        }
+
+        public int TBookingCount()
+        {
+            return _bookingDal.BookingCount();
         }
 
         public void TBookingStatusChangeApproved(Booking booking)
@@ -36,6 +37,11 @@ namespace HotelProject.BusinessLayer.Concrete
         public Booking TGetById(int id)
         {
            return _bookingDal.GetById(id);
+        }
+
+        public List<Booking> TGetLast3Booking()
+        {
+            return _bookingDal.GetLast3Booking();
         }
 
         public void TInsert(Booking entity)

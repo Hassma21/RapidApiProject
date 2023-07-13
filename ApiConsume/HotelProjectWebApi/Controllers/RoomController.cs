@@ -23,6 +23,12 @@ namespace HotelProject.WebApi.Controllers
             var values = _roomService.TGetAll();
             return Ok(values);
         }
+        [HttpGet("RoomCount")]
+        public IActionResult RoomCount()
+        {
+            var values = _roomService.TRoomCount();
+            return Ok(values);
+        }
         [HttpPost]
         public IActionResult AddRoom([FromBody] Room room)
         {
