@@ -1,0 +1,115 @@
+﻿@model UpdateBookingDto
+@{
+    ViewData["Title"] = "UpdateReservation";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>Rezarvasyonu Güncelle</h1>
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title text-center text-primary text-uppercase">Rezarvasyon Paneli</h6>
+            <h1 class="mb-5">Rezarvasyonu <span class="text-primary text-uppercase">Güncelle</span></h1>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6 text-end">
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="~/hotel-html-template/img/about-1.jpg" style="margin-top: 25%;">
+                    </div>
+                    <div class="col-6 text-start">
+                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="~/hotel-html-template/img/about-2.jpg">
+                    </div>
+                    <div class="col-6 text-end">
+                        <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="~/hotel-html-template/img/about-3.jpg">
+                    </div>
+                    <div class="col-6 text-start">
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="~/hotel-html-template/img/about-4.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <form method="post" >
+                        <input type="hidden" asp-for="BookingId" />
+                        <div class="row g-3">
+                            
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <label for="name">Adınız</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Adınız" asp-for="Name">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <label for="email">Emailiniz</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Emailiniz" asp-for="Mail">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating date" id="date3" data-target-input="nearest">
+                                    <label for="checkin">Giriş</label>
+                                    <input type="text" class="form-control datetimepicker-input" id="checkin" placeholder="Giriş" data-target="#date3" data-toggle="datetimepicker" asp-for="Checkin" />
+                                   
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating date" id="date4" data-target-input="nearest">
+                                    <label for="checkout">Çıkış</label>
+                                    <input type="text" class="form-control datetimepicker-input" id="checkout" placeholder="Çıkış" data-target="#date4" data-toggle="datetimepicker" asp-for="Checkout" />
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <label for="select1">Yetişkin Sayısı Seç</label>
+                                    <select class="form-select" id="select1" asp-for="AdultCount">
+                                        <option value="1">Adult 1</option>
+                                        <option value="2">Adult 2</option>
+                                        <option value="3">Adult 3</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <label for="select2">Çocuk Sayısı Seç</label>
+                                    <select class="form-select" id="select2" asp-for="ChildCount">
+                                        <option value="1">Child 1</option>
+                                        <option value="2">Child 2</option>
+                                        <option value="3">Child 3</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <label for="select3">Oda Seç</label>
+                                    <select class="form-select" id="select3" asp-for="RoomCount">
+                                        <option value="1">Room 1</option>
+                                        <option value="2">Room 2</option>
+                                        <option value="3">Room 3</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <label for="message">Özel İstek</label>
+                                    <textarea class="form-control" placeholder="Özel İstek" id="message" style="height: 100px" asp-for="Description"></textarea>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Güncelle</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

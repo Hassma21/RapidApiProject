@@ -28,25 +28,75 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
-        
-        public async Task<IActionResult> ApprovedResarvation(int id)
+
+        public async Task<IActionResult> ApproveReservation(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var getResponse = await client.GetAsync($"http://localhost:5227/api/Booking/{id}");
-            if (getResponse.IsSuccessStatusCode)
-            {
-                var jsonData = await getResponse.Content.ReadAsStringAsync();
-                StringContent content = new StringContent(jsonData, Encoding.UTF8, "applicaiton/json");
-                var responseMessage = await client.PutAsync($"http://localhost:5227/api/Booking/UpdateReservationBooking", content);
+            var responseMessage = await client.PutAsync($"http://localhost:5227/api/Booking/Approve?id={id}",null);
 
-                if (responseMessage.IsSuccessStatusCode)
-                {
-                    return RedirectToAction("Index");
-                }
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
             }
-            
+
+
             return View();
 
+        }
+        public async Task<IActionResult> WaitReservation(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.PutAsync($"http://localhost:5227/api/Booking/Waite?id={id}", null);
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+
+
+            return View();
+
+        }
+        public async Task<IActionResult> CancelReservation(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.PutAsync($"http://localhost:5227/api/Booking/Cancel?id={id}", null);
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+
+
+            return View();
+
+        }
+        public async Task<IActionResult> UpdateReservation(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"http://localhost:5227/api/Booking/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<UpdateBookingDto>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateReservation(UpdateBookingDto model)
+        {
+            model.Status = "Onay Bekliyor";
+            var client = _httpClientFactory.CreateClient();
+            var json = JsonConvert.SerializeObject(model);
+            StringContent content = new StringContent(json,Encoding.UTF8,"application/json");
+            var responseMessage = await client.PutAsync($"http://localhost:5227/api/Booking/UpdateBooking",content);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+
+                return RedirectToAction("Index");
+            }
+            return View();
         }
     }
 }

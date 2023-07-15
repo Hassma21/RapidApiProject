@@ -21,7 +21,7 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
                 RequestUri = new Uri("https://instagram-scraper-2022.p.rapidapi.com/ig/info_username/?user=muhammeddd_ylmaz"),
                 Headers =
     {
-        { "X-RapidAPI-Key", "*************************" },
+        { "X-RapidAPI-Key", "dc81adc279mshcdef82631150db8p1f7943jsneeb5badd3304" },
         { "X-RapidAPI-Host", "instagram-scraper-2022.p.rapidapi.com" },
     },
             };
@@ -41,7 +41,7 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
                 RequestUri = new Uri("https://linkedin-profiles1.p.rapidapi.com/extract?url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fmuhammed-y%25C4%25B1lmaz-07b990229%2F&html=false"),
                 Headers =
     {
-        { "X-RapidAPI-Key", "*************************************" },
+        { "X-RapidAPI-Key", "dc81adc279mshcdef82631150db8p1f7943jsneeb5badd3304" },
         { "X-RapidAPI-Host", "linkedin-profiles1.p.rapidapi.com" },
     },
             };

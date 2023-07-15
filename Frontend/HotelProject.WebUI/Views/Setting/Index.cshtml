@@ -1,0 +1,41 @@
+﻿@model UserEditViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>Profil Bilgileri Ve Şifre Güncelleme</h1>
+
+<form method="post">
+    <label>Adınız</label>
+    <input type="text" class="form-control" asp-for="Name" />
+    <span asp-validation-for="Name" class="text-warning"></span>
+    <br />
+
+     <label>Soyadınız</label>
+    <input type="text" class="form-control" asp-for="Surname" />
+    <span asp-validation-for="Surname" class="text-warning"></span>
+    <br />
+
+    <label>Adınız</label>
+    <input type="text" class="form-control" asp-for="UserName" readonly />
+    <br />
+
+    <label>Email</label>
+    <input type="email" class="form-control" asp-for="Email" />
+    <span asp-validation-for="Email" class="text-warning"></span>
+    <br />
+
+    <label>Şifreniz</label>
+    <input type="password" class="form-control" asp-for="Password" />
+    <span asp-validation-for="Password" class="text-warning"></span>
+    <br />
+
+    <label>Şifre Tekrar</label>
+    <input type="password" class="form-control" asp-for="ConfirmPassword" />
+    <span asp-validation-for="ConfirmPassword" class="text-warning"></span>
+    <br />
+
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+</form>
+

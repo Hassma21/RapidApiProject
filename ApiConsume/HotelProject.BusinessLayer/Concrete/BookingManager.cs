@@ -19,9 +19,19 @@ namespace HotelProject.BusinessLayer.Concrete
             return _bookingDal.BookingCount();
         }
 
-        public void TBookingStatusChangeApproved(Booking booking)
+        public void TBookingStatusChangeApproved(int id)
         {
-            _bookingDal.BookingStatusChangeApproved(booking);
+            _bookingDal.BookingStatusChangeApproved(id);
+        }
+
+        public void TBookingStatusChangeCancaled(int id)
+        {
+            _bookingDal.BookingStatusChangeCancaled(id);
+        }
+
+        public void TBookingStatusChangeWaited(int id)
+        {
+            _bookingDal.BookingStatusChangeWaited(id);
         }
 
         public void TDelete(Booking entity)

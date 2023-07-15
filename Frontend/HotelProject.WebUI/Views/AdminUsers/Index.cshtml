@@ -21,7 +21,7 @@
         @foreach(var item in Model)
         {
             <tr>
-                <td><img src="~/images/AdminUsers/@item.imageUrl" width="75" height="75" class=" rounded-circle mr-3" alt=""></td>
+                <td><img src="~/images/AdminUsers/@item.imageUrl" width="100" height="100" class=" rounded-circle mr-3" alt=""></td>
                 <td>@item.name @item.surname</td>
                 <td>@item.workLocation.workLocationName</td>
                 <td>@item.workLocation.workLocationCity</td>
@@ -32,7 +32,8 @@
        
       
     </tbody>
-    <a href="/Register/Index" class="btn btn-primary">Yeni Kullanıcı Ekle</a>
+    
 </table>
-
+<br />
+<a href="/Register/Index" class="btn btn-primary">Yeni Kullanıcı Ekle</a>
 

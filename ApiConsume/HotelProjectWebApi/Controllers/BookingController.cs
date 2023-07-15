@@ -46,10 +46,22 @@ namespace HotelProject.WebApi.Controllers
             _bookingService.TUpdate(booking);
             return Ok();
         }
-        [HttpPut("UpdateReservationBooking")]
-        public IActionResult UpdateReservationBooking(Booking booking)
+        [HttpPut("Approve")]
+        public IActionResult ApproveReservationBooking(int id)
         {
-            _bookingService.TBookingStatusChangeApproved(booking);
+            _bookingService.TBookingStatusChangeApproved(id);
+            return Ok();
+        }
+        [HttpPut("Cancel")]
+        public IActionResult CancelReservationBooking(int id)
+        {
+            _bookingService.TBookingStatusChangeCancaled(id);
+            return Ok();
+        }
+        [HttpPut("Waite")]
+        public IActionResult WaitReservationBooking(int id)
+        {
+            _bookingService.TBookingStatusChangeWaited(id);
             return Ok();
         }
         [HttpDelete("{id}")]

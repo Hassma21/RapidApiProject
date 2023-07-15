@@ -32,12 +32,29 @@
                     <td>@(((DateTime)item.Checkin).ToString("dd-MM-yyyy"))</td>
                     <td>@(((DateTime)item.Checkout).ToString("dd-MM-yyyy"))</td>
                     <td>
-                        <span class="badge badge-primary px-2">@item.Status</span>
+
+                        @if (item.Status == "Onay Bekliyor")
+                        {
+                            <span class="badge badge-info px-2">@item.Status</span>
+                        }
+                        @if(item.Status == "Onaylandı")
+                        {
+                            <span class="badge badge-primary px-2">@item.Status</span>
+                        }
+                        @if(item.Status == "İptal Edildi")
+                        {
+                            <span class="badge badge-danger px-2">@item.Status</span>
+                        }
+                        @if (item.Status == "Müşteri Aranacak")
+                        {
+                            <span class="badge badge-warning px-2">@item.Status</span>
+                        }
+                        
                     </td>
-                    <td><a href="/BookingAdmin/ApprovedResarvation/@item.BookingId" class="btn btn-outline-primary">Onayla</a></td>
-                    <td><a href="#" class="btn btn-outline-danger">İptal Et</a></td>
-                    <td><a href="#" class="btn btn-outline-warning">OnBekletyla</a></td>
-                    <td><a href="#" class="btn btn-outline-info">Güncelle</a></td>
+                    <td><a href="/BookingAdmin/ApproveReservation/@item.BookingId" class="btn btn-outline-primary">Onayla</a></td>
+                    <td><a href="/BookingAdmin/CancelReservation/@item.BookingId" class="btn btn-outline-danger">İptal Et</a></td>
+                    <td><a href="/BookingAdmin/WaitReservation/@item.BookingId" class="btn btn-outline-warning">Onay Bekliyor</a></td>
+                    <td><a href="/BookingAdmin/UpdateReservation/@item.BookingId" class="btn btn-outline-info">Güncelle</a></td>
                     <td><a href="#" class="btn btn-outline-dark">Detaylar</a></td>
 
                 </tr>
